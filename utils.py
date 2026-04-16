@@ -12,3 +12,12 @@ class PasswordManager:
         :return:
         """
         return bcrypt.hashpw(b'{password}', salt=bcrypt.gensalt(10))
+
+    def is_password_match(self, password, pwhash):
+        """
+        Method to check that password match with saved password hash
+        :param password: password to match
+        :param pwhash: generated password hash to match password with
+        :return:
+        """
+        return bcrypt.checkpw(password, pwhash)
