@@ -1,10 +1,16 @@
-from sqlmodel import Field, Session, SQLModel, create_engine, select
-
+from typing import Annotated
+from pydantic.json_schema import SkipJsonSchema
+from sqlmodel import Field, SQLModel
+import datetime
 
 class User(SQLModel, table=True):
-    id: int | None = Field(default=None, primary_key=True)
-    name: str = Field(index=True)
-    email: str
-    password: str
-    last_login: str
+    id: Annotated[int, SkipJsonSchema()] = Field(primary_key=True)
+    name: str = Field(index=True, max_length=64, nullable=False)
+    email: str = Field(unique=True, max_length=64, nullable=False)
+    password: str = Field(nullable=False)
+    active: Annotated[bool, SkipJsonSchema()] = Field(default=False, nullable=False)
+    is_staff: Annotated[bool, SkipJsonSchema()] = Field(default=True, nullable=False)
+    is_admin: Annotated[bool, SkipJsonSchema()] = Field(default=False, nullable=False)
+    created_at: Annotated[datetime.datetime, SkipJsonSchema()] = Field(default=datetime.datetime.now())
+    last_login: Annotated[datetime.datetime | None, SkipJsonSchema()] = Field(default=None)
 
