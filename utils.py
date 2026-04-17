@@ -1,4 +1,5 @@
 import bcrypt
+from enum import Enum
 
 class PasswordManager:
     """
@@ -21,3 +22,8 @@ class PasswordManager:
         :return:
         """
         return bcrypt.checkpw(password, pwhash)
+
+# operational tags
+class Tags(Enum):
+
+    auth = "Auth"
