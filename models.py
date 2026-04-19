@@ -1,5 +1,6 @@
-from typing import Annotated
+from typing import Annotated, Optional
 from pydantic.json_schema import SkipJsonSchema
+from pydantic import BaseModel
 from sqlmodel import Field, SQLModel
 import datetime
 
@@ -13,4 +14,10 @@ class User(SQLModel, table=True):
     is_admin: Annotated[bool, SkipJsonSchema()] = Field(default=False, nullable=False)
     created_at: Annotated[datetime.datetime, SkipJsonSchema()] = Field(default=datetime.datetime.now())
     last_login: Annotated[datetime.datetime | None, SkipJsonSchema()] = Field(default=None)
+
+
+class UserLoginCredential(BaseModel):
+
+    email: str
+    password: str
 
