@@ -21,3 +21,12 @@ class UserLoginCredential(BaseModel):
     email: str
     password: str
 
+class Notification(SQLModel, table=True):
+    id: int = Field(primary_key=True)
+    sender_id: Optional[int] = Field(default=None, foreign_key="user.id")
+    receiver_id: Optional[int] = Field(default=None, foreign_key="user.id")
+    title: str = Field(max_length=64, default="")
+    description: str = Field(max_length=128, default="")
+    read: bool = Field(default=False)
+    created_at: datetime.datetime = Field(default=datetime.datetime.now())
+
