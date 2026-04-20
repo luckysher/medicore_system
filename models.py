@@ -48,3 +48,7 @@ class Appointment(BaseSqlModel):
 
 class Specialty(BaseSqlModel):
     name: str = Field(max_length=64, nullable=False, default="")
+
+class SubSpecialty(BaseSqlModel):
+    name: str = Field(max_length=64, nullable=False, default="")
+    speciality: Optional[int] = Field(default=None, foreign_key="speciality.id")
