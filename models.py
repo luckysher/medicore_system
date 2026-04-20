@@ -4,6 +4,11 @@ from pydantic import BaseModel
 from sqlmodel import Field, SQLModel, Enum
 import datetime
 
+class AppointmentStatus(str, Enum):
+    SCHEDULED = "scheduled"
+    IN_PROGRESS = "in_progress"
+    CANCELLED = "cancelled"
+    COMPLETED = "completed"
 
 class BaseSqlModel(SQLModel, table=True):
     id: Annotated[int, SkipJsonSchema()] = Field(primary_key=True)
