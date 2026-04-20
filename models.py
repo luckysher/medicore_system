@@ -45,3 +45,6 @@ class Appointment(BaseSqlModel):
     disease: str = Field(max_length=64, nullable=False, default="")
     doctor: Optional[int] = Field(default=None, foreign_key="doctor.id")
     status: AppointmentStatus = Field(default=AppointmentStatus.SCHEDULED, nullable=False)
+
+class Specialty(BaseSqlModel):
+    name: str = Field(max_length=64, nullable=False, default="")
