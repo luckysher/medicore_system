@@ -35,3 +35,13 @@ class Notification(BaseSqlModel):
     title: str = Field(max_length=64, default="")
     description: str = Field(max_length=128, default="")
     read: bool = Field(default=False)
+
+#  Appointment
+class Appointment(BaseSqlModel):
+    patient_name: str = Field(max_length=64, nullable=False, default="")
+    # contacts
+    contact_no: int = Field(nullable=False)
+    home_contact_no: int = Field(nullable=False)
+    disease: str = Field(max_length=64, nullable=False, default="")
+    doctor: Optional[int] = Field(default=None, foreign_key="doctor.id")
+    status: AppointmentStatus = Field(default=AppointmentStatus.SCHEDULED, nullable=False)
