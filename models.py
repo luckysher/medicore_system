@@ -52,3 +52,9 @@ class Specialty(BaseSqlModel):
 class SubSpecialty(BaseSqlModel):
     name: str = Field(max_length=64, nullable=False, default="")
     speciality: Optional[int] = Field(default=None, foreign_key="speciality.id")
+
+class Doctor(BaseSqlModel):
+    name: str = Field(max_length=64, nullable=False, default="")
+    email: str = Field(unique=True, max_length=64, nullable=False, default="")
+    contact_no: int = Field(nullable=False)
+    specialization: Optional[int] = Field(default="", foreign_key="subspeciality.id")
