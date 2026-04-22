@@ -9,3 +9,6 @@ Python 3.14.3
 ![basic-features](https://github.com/luckysher/medicore_system/blob/main/mockup_2.png)
 ![basic-features](https://github.com/luckysher/medicore_system/blob/main/mockup_3.png)
 ![basic-features](https://github.com/luckysher/medicore_system/blob/main/mockup_4.png)
+
+# start api server
+$ fastapi dev server.py
