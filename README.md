@@ -5,10 +5,7 @@ Medicore system
 Python 3.14.3
 
 # mock ups
-![basic-features](https://github.com/luckysher/medicore_system/blob/main/mockup_1.png)
-![basic-features](https://github.com/luckysher/medicore_system/blob/main/mockup_2.png)
-![basic-features](https://github.com/luckysher/medicore_system/blob/main/mockup_3.png)
-![basic-features](https://github.com/luckysher/medicore_system/blob/main/mockup_4.png)
+![basic-features](https://github.com/luckysher/medicore_system/blob/main/medicore_system.png)
 
 # start api server
 $ fastapi dev server.py
