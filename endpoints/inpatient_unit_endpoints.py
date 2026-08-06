@@ -6,3 +6,12 @@ from db_connection_manager import SessionDep
 from models import *
 from utils import Tags
 from sqlmodel import select, or_
+#from validator import 
+
+# ADT (Admission, Discharge and Transfer)
+@app.post("/admissions", status_code=status.HTTP_201_CREATED)
+async def admit_new_patient():
+    """
+    API post request for admitting a new patient
+    """
+    pass
