@@ -23,3 +23,9 @@ async def discharge_patient():
     """
     pass
 
+@app.post("/transfer", status_code=status.HTTP_201_CREATED)
+async def transfer_patient():
+    """
+    API post request for transferring a patient
+    """
+    pass
