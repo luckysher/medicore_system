@@ -81,3 +81,8 @@ class Doctor(SQLModel, table=True):
     speciality: Optional[int] = Field(default="", foreign_key="speciality.id")
     sub_speciality: Optional[int] = Field(default="", foreign_key="subspeciality.id")
     created_at: Annotated[datetime.datetime, SkipJsonSchema()] = Field(default=datetime.datetime.now())
+
+class Disease(SQLModel, table=True):
+    id: Annotated[int, SkipJsonSchema()] = Field(primary_key=True)
+    name: str = Field(max_length=64, nullable=False, default="")
+    created_at: Annotated[datetime.datetime, SkipJsonSchema()] = Field(default=datetime.datetime.now())
