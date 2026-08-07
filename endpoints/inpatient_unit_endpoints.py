@@ -15,3 +15,11 @@ async def admit_new_patient():
     API post request for admitting a new patient
     """
     pass
+
+@app.post("/discharge", status_code=status.HTTP_201_CREATED)
+async def discharge_patient():
+    """
+    API post request for discharging a patient
+    """
+    pass
+
