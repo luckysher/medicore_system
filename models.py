@@ -38,6 +38,14 @@ class AppointmentUpdatedStatus(BaseModel):
     appo_id: str
     new_status: str
 
+class PatientInput(BaseModel):
+
+    name: str
+    contact_no: str
+    disease: str
+    address: str
+    city: str
+
 class DiseaseInput(BaseModel):
 
     name: str
