@@ -99,3 +99,6 @@ class Disease(SQLModel, table=True):
     name: str = Field(max_length=64, nullable=False, default="")
     created_at: Annotated[datetime.datetime, SkipJsonSchema()] = Field(default=datetime.datetime.now())
 
+class Patient(SQLModel, table=True):
+    id: Annotated[int, SkipJsonSchema()] = Field(primary_key=True)
+    created_at: Annotated[datetime.datetime, SkipJsonSchema()] = Field(default=datetime.datetime.now())
