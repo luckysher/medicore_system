@@ -38,6 +38,10 @@ class AppointmentUpdatedStatus(BaseModel):
     appo_id: str
     new_status: str
 
+class DiseaseInput(BaseModel):
+
+    name: str
+
 class Notification(SQLModel, table=True):
     id: Annotated[int, SkipJsonSchema()] = Field(primary_key=True)
     sender_id: Optional[int] = Field(default=None, foreign_key="user.id")
@@ -86,3 +90,4 @@ class Disease(SQLModel, table=True):
     id: Annotated[int, SkipJsonSchema()] = Field(primary_key=True)
     name: str = Field(max_length=64, nullable=False, default="")
     created_at: Annotated[datetime.datetime, SkipJsonSchema()] = Field(default=datetime.datetime.now())
+
