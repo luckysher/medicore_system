@@ -1,20 +1,21 @@
 
-class InvalidEmailError(Exception):
+class MediBaseException(Exception):
 
     def __init__(self,message: str):
         self.message = message
 
-class EmailAlreadyExistError(Exception):
+class FieldRequiredError(MediBaseException):
+    pass
 
-    def __init__(self,  message: str):
-        self.message = message
+class InvalidFieldError(MediBaseException):
+    pass
 
-class UserNameError(Exception):
+class ObjectAlreadyExistError(MediBaseException):
+    pass
 
-    def __init__(self, message: str):
-        self.message = message
+class InvalidEmailError(MediBaseException):
+    pass
 
-class PasswordWeakError(Exception):
+class EmailAlreadyExistError(MediBaseException):
+    pass
 
-    def __init__(self, message: str):
-        self.message = message
