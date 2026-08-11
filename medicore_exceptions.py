@@ -19,3 +19,8 @@ class InvalidEmailError(MediBaseException):
 class EmailAlreadyExistError(MediBaseException):
     pass
 
+class UserNameError(MediBaseException):
+    pass
+
+class PasswordWeakError(MediBaseException):
+    pass
