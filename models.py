@@ -46,10 +46,6 @@ class PatientInput(BaseModel):
     address: str
     city: str
 
-class DiseaseInput(BaseModel):
-
-    name: str
-
 class Notification(SQLModel, table=True):
     id: Annotated[int, SkipJsonSchema()] = Field(primary_key=True)
     sender_id: Optional[int] = Field(default=None, foreign_key="user.id")
@@ -96,7 +92,7 @@ class Doctor(SQLModel, table=True):
 
 class Disease(SQLModel, table=True):
     id: Annotated[int, SkipJsonSchema()] = Field(primary_key=True)
-    name: str = Field(max_length=64, nullable=False, default="")
+    name: str = Field(max_length=64, min_items=3, nullable=False, default="")
     created_at: Annotated[datetime.datetime, SkipJsonSchema()] = Field(default=datetime.datetime.now())
 
 class Patient(SQLModel, table=True):
