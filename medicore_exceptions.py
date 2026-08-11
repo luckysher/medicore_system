@@ -24,3 +24,9 @@ class UserNameError(MediBaseException):
 
 class PasswordWeakError(MediBaseException):
     pass
+
+class InvalidTokenError(MediBaseException):
+    pass
+
+class NotFoundError(MediBaseException):
+    pass
